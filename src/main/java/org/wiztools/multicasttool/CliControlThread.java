@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
+ * The thread which stops the execution of the Shutdownable instance.
  * @author subwiz
  */
 public class CliControlThread implements Runnable {

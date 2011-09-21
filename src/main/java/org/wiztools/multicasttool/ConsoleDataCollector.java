@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.wiztools.commons.Charsets;
 
 /**
- *
+ * Collect data to send from the console.
  * @author subwiz
  */
 class ConsoleDataCollector implements DataCollector {

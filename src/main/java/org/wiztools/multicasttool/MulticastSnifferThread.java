@@ -7,7 +7,8 @@ import java.net.MulticastSocket;
 import org.wiztools.commons.Charsets;
 
 /**
- *
+ * The sniffer thread that collects data from the multicast IP and port and
+ * writes it to stdout.
  * @author subwiz
  */
 class MulticastSnifferThread implements Runnable, Shutdownable {
