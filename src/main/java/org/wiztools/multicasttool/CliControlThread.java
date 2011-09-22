@@ -1,5 +1,6 @@
 package org.wiztools.multicasttool;
 
+import java.io.Console;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,7 +24,13 @@ public class CliControlThread implements Runnable {
     @Override
     public void run() {
         while(true) {
-            final String command = System.console().readLine();
+            final Console console = System.console();
+            
+            // Do not ask for input when console is not available:
+            if(console == null)  {
+                break;
+            }
+            final String command = console.readLine();
 
             if(command == null || quitCommands.contains(command)) {
                 shutdownable.shutdown();

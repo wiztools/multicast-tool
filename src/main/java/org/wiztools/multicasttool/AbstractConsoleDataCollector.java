@@ -1,8 +1,8 @@
 package org.wiztools.multicasttool;
 
-import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import org.wiztools.commons.Charsets;
+import java.io.InputStream;
 
 /**
  * The console reader implementation.
@@ -15,13 +15,15 @@ abstract class AbstractConsoleDataCollector implements DataCollector {
 
     @Override
     public final byte[] getData() throws IOException {
-        StringBuilder sb = new StringBuilder();
-        BufferedReader br = new BufferedReader(System.console().reader());
-        String str = null;
-        while((str = br.readLine()) != null) {
-            sb.append(str);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        
+        byte[] buf = new byte[1024*64];
+        InputStream is = System.in;
+        int i = -1;
+        while((i=is.read(buf)) != -1) {
+            baos.write(buf, 0, i);
         }
-        return sb.toString().getBytes(Charsets.UTF_8);
+        return baos.toByteArray();
     }
     
 }

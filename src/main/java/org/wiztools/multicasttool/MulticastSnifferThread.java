@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
-import org.wiztools.commons.Charsets;
 
 /**
  * The sniffer thread that collects data from the multicast IP and port and
@@ -32,8 +31,7 @@ class MulticastSnifferThread implements Runnable, Shutdownable {
         try{
             while(true) {
                 socket.receive(packet);
-                final String s = new String(packet.getData(), 0, packet.getLength(), Charsets.UTF_8);
-                System.out.println(s);
+                System.out.write(packet.getData(), 0, packet.getLength());
             }
         }
         catch(IOException ex) {
