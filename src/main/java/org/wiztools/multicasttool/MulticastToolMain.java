@@ -26,7 +26,7 @@ public class MulticastToolMain {
         out.println("To print this message:");
         out.println("\t-h\tHelp message.");
         out.println("Quick reference:");
-        out.println("\tMulticast IPs start from 224.0.0.0 to 239.255.255.255");
+        out.println("\tMulticast IP range: 224.0.0.0 to 239.255.255.255");
         out.println("\tLocal broadcast IP: 255.255.255.255");
     }
     
