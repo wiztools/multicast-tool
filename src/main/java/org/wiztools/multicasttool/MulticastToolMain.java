@@ -9,7 +9,7 @@ import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 
 /**
- *
+ * The program entry class with public static void main(...) method.
  * @author subwiz
  */
 public class MulticastToolMain {
@@ -17,16 +17,21 @@ public class MulticastToolMain {
     private static final int EXIT_CODE_CLI_PARSE_ERROR = 1;
     
     private static void printHelp(PrintStream out) {
-        out.println("Usage: java -jar multicast-tool-VERSION-jar-with-dependencies.jar [-l | -s] <address> <port>");
+        out.println("Usage: java -jar multicast-tool-VERSION-jar-with-dependencies.jar (-l | -s) [OPTION] <address> <port>");
         out.println("Where:");
-        out.println("\t-l\tJoin the Multicast group and listen for data");
-        out.println("\t-s\tOpen the send interface");
+        out.println("\t-l\tJoin the Multicast group and listen for data.");
+        out.println("\t-s\tOpen the send interface.");
+        out.println("Options:");
+        out.println("\t-i\tInteractive input. Ignored when -l is specified.");
         out.println("To print this message:");
-        out.println("\t-h\tHelp message");
+        out.println("\t-h\tHelp message.");
+        out.println("Quick reference:");
+        out.println("\tMulticast IPs start from 224.0.0.0 to 239.255.255.255");
+        out.println("\tLocal broadcast IP: 255.255.255.255");
     }
     
     public static void main(String[] arg) {
-        OptionParser parser = new OptionParser("lhs");
+        OptionParser parser = new OptionParser("lhsi");
         OptionSet options = parser.parse(arg);
         
         if(options.has("h")) {
@@ -58,11 +63,15 @@ public class MulticastToolMain {
                 new Thread(new CliControlThread(t)).start();
             }
             else if(options.has("s")) {
+                final DataCollector dataCollector = options.has("i")?
+                        new ConsoleInteractiveDataCollector():
+                        new ConsoleDataCollector();
+
                 new Thread(
                         new MulticastSendThread(
                                 address,
                                 port,
-                                new ConsoleDataCollector())).start();
+                                dataCollector)).start();
             }
         }
         catch(UnknownHostException ex) {
