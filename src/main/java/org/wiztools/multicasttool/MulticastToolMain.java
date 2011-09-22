@@ -20,7 +20,7 @@ public class MulticastToolMain {
         out.println("Usage: java -jar multicast-tool-VERSION-jar-with-dependencies.jar \\\n\t(-l | -s) [OPTION] <address> <port>");
         out.println("Where:");
         out.println("\t-l\tJoin the Multicast group and listen for data.");
-        out.println("\t-s\tSend data interface (via STDIN).");
+        out.println("\t-s\tSend-data interface (via STDIN).");
         out.println("Options:");
         out.println("\t-v\tVerbose output (additional info written to STDERR).");
         out.println("\t-i\tInteractive input for -s option. Ignored other times.");
