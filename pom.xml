@@ -10,6 +10,12 @@
 
     <name>multicast-tool</name>
     <url>http://wiztools.org</url>
+    
+    <scm>
+        <connection>scm:svn:http://wiztools.googlecode.com/svn/multicast-tool/trunk/</connection>
+        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/multicast-tool/trunk/</developerConnection>
+        <url>http://code.google.com/p/wiztools/source/browse/</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -65,6 +71,13 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <tagBase>https://wiztools.googlecode.com/svn/multicast-tool/tags</tagBase>
+                </configuration>
             </plugin>
         </plugins>
     </build>
