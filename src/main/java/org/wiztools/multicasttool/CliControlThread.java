@@ -10,7 +10,6 @@ import java.util.List;
  */
 public class CliControlThread implements Runnable {
     
-    // List<String> quitCommands = new ArrayList<String>();
     private static final List<String> quitCommands = Arrays.asList(
             new String[]{"quit", "bye", "exit", "close", "terminate", "shutdown",
                 "hasta la vista", "vanakkam", "danyavada", "danyavaad"});
@@ -32,6 +31,7 @@ public class CliControlThread implements Runnable {
             }
             final String command = console.readLine();
 
+            // `command' is null when EOF is received
             if(command == null || quitCommands.contains(command)) {
                 shutdownable.shutdown();
                 break;
