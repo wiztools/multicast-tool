@@ -22,7 +22,8 @@ public class MulticastToolMain {
         out.println("\t-l\tJoin the Multicast group and listen for data.");
         out.println("\t-s\tOpen the send interface.");
         out.println("Options:");
-        out.println("\t-i\tInteractive input. Ignored when -l is specified.");
+        out.println("\t-v\tVerbose output. Additional info will be output to STDERR.");
+        out.println("\t-i\tInteractive input. Used when -s is specified, ignored other times.");
         out.println("To print this message:");
         out.println("\t-h\tHelp message.");
         out.println("Data is read and written to the STDIN and STDOUT respectively.");
@@ -32,7 +33,7 @@ public class MulticastToolMain {
     }
     
     public static void main(String[] arg) {
-        OptionParser parser = new OptionParser("lhsi");
+        OptionParser parser = new OptionParser("lhsiv");
         OptionSet options = parser.parse(arg);
         
         if(options.has("h")) {
@@ -54,12 +55,19 @@ public class MulticastToolMain {
             System.exit(EXIT_CODE_CLI_PARSE_ERROR);
         }
         
+        // Options:
+        RuntimeOptionsImpl rtOpts = new RuntimeOptionsImpl();
+        
+        if(options.has("v")) {
+            rtOpts.setVerbose(true);
+        }
+        
         try{
             final InetAddress address = InetAddress.getByName(params.get(0));
             final int port = Integer.parseInt(params.get(1));
             
             if(options.has("l")) {
-                MulticastSnifferThread t = new MulticastSnifferThread(address, port);
+                MulticastSnifferThread t = new MulticastSnifferThread(address, port, rtOpts);
                 new Thread(t).start();
                 new Thread(new CliControlThread(t)).start();
             }

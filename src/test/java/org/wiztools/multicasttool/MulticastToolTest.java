@@ -37,7 +37,9 @@ public class MulticastToolTest {
         final int port = 8000;
         final InetAddress address = InetAddress.getByName("239.255.255.255");
         
-        MulticastSnifferThread t = new MulticastSnifferThread(address, port);
+        RuntimeOptionsImpl rtOpts = new RuntimeOptionsImpl();
+        rtOpts.setVerbose(true);
+        MulticastSnifferThread t = new MulticastSnifferThread(address, port, rtOpts);
         new Thread(t).start();
         
         // MulticastSendThread t1 = new MulticastSendThread(address, port, new ConsoleDataCollector());

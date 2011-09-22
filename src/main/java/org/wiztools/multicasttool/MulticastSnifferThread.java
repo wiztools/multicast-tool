@@ -14,13 +14,18 @@ class MulticastSnifferThread implements Runnable, Shutdownable {
     
     private final InetAddress address;
     private final MulticastSocket socket;
+    private final RuntimeOptions options;
     
     private boolean peacefulStop = false;
 
-    public MulticastSnifferThread(InetAddress address, int port) throws IOException {
+    public MulticastSnifferThread(InetAddress address,
+            int port,
+            RuntimeOptions options) throws IOException {
         socket = new MulticastSocket(port);
         socket.joinGroup(address);
         this.address = address;
+        
+        this.options = options;
     }
     
     @Override
@@ -31,6 +36,9 @@ class MulticastSnifferThread implements Runnable, Shutdownable {
         try{
             while(true) {
                 socket.receive(packet);
+                if(options.isVerbose()) {
+                    System.err.println("\nReceived from: " + packet.getSocketAddress());
+                }
                 System.out.write(packet.getData(), 0, packet.getLength());
             }
         }
