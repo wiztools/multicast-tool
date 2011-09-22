@@ -25,6 +25,7 @@ public class MulticastToolMain {
         out.println("\t-i\tInteractive input. Ignored when -l is specified.");
         out.println("To print this message:");
         out.println("\t-h\tHelp message.");
+        out.println("Data is read and written to the STDIN and STDOUT respectively.");
         out.println("Quick reference:");
         out.println("\tMulticast IP range: 224.0.0.0 to 239.255.255.255");
         out.println("\tLocal broadcast IP: 255.255.255.255");
