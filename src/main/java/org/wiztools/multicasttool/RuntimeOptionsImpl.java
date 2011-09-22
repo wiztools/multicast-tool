@@ -4,7 +4,7 @@ package org.wiztools.multicasttool;
  * Bean holding runtime options.
  * @author subwiz
  */
-public class RuntimeOptionsImpl implements RuntimeOptions {
+class RuntimeOptionsImpl implements RuntimeOptions {
     private boolean verbose = false; // default is false
 
     @Override
