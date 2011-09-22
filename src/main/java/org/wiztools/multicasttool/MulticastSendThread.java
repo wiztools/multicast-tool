@@ -21,10 +21,10 @@ class MulticastSendThread implements Runnable {
         this.dataCollector = collector;
     }
 
+    @Override
     public void run() {
         try {
             MulticastSocket soc = new MulticastSocket(port);
-            soc.joinGroup(address);
             while(dataCollector.hasMoreData()) {
                 byte[] buf = dataCollector.getData();
                 DatagramPacket packet = new DatagramPacket(buf, buf.length, address, port);
