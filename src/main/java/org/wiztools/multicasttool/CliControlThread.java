@@ -13,7 +13,7 @@ public class CliControlThread implements Runnable {
     // List<String> quitCommands = new ArrayList<String>();
     private static final List<String> quitCommands = Arrays.asList(
             new String[]{"quit", "bye", "exit", "close", "terminate", "shutdown",
-                "hasta la vista", "vanakkam", "danyavada"});
+                "hasta la vista", "vanakkam", "danyavada", "danyavaad"});
 
     private Shutdownable shutdownable;
     
