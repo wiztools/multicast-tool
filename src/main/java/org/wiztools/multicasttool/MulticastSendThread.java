@@ -24,7 +24,7 @@ class MulticastSendThread implements Runnable {
     @Override
     public void run() {
         try {
-            MulticastSocket soc = new MulticastSocket(port);
+            MulticastSocket soc = new MulticastSocket();
             while(dataCollector.hasMoreData()) {
                 byte[] buf = dataCollector.getData();
                 DatagramPacket packet = new DatagramPacket(buf, buf.length, address, port);
