@@ -46,7 +46,6 @@ public class MulticastToolMain {
         final List<String> params = options.nonOptionArguments();
         
         if(params.size() != 2) {
-            System.err.println("There has to be one option and two arguments:");
             printHelp(System.err);
             System.exit(EXIT_CODE_CLI_PARSE_ERROR);
         }
