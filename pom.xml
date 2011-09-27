@@ -4,16 +4,16 @@
 
     <groupId>org.wiztools</groupId>
     <artifactId>multicast-tool</artifactId>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.1.1</version>
     <packaging>jar</packaging>
 
     <name>multicast-tool</name>
     <url>http://wiztools.org</url>
     
     <scm>
-        <connection>scm:svn:http://wiztools.googlecode.com/svn/multicast-tool/trunk/</connection>
-        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/multicast-tool/trunk/</developerConnection>
-        <url>http://code.google.com/p/wiztools/source/browse/</url>
+        <connection>scm:svn:http://wiztools.googlecode.com/svn/multicast-tool/tags/multicast-tool-0.1.1</connection>
+        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/multicast-tool/tags/multicast-tool-0.1.1</developerConnection>
+        <url>scm:svn:https://wiztools.googlecode.com/svn/multicast-tool/tags/multicast-tool-0.1.1</url>
     </scm>
 
     <properties>
