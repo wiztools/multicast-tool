@@ -17,7 +17,7 @@ abstract class AbstractConsoleDataCollector implements DataCollector {
     public final byte[] getData() throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         
-        byte[] buf = new byte[1024*64];
+        byte[] buf = new byte[1024*16];
         InputStream is = System.in;
         int i = -1;
         while((i=is.read(buf)) != -1) {
