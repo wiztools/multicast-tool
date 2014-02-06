@@ -43,7 +43,7 @@ public class MulticastToolMain {
             return;
         }
         
-        final List<String> params = options.nonOptionArguments();
+        final List params = options.nonOptionArguments();
         
         if(params.size() != 2) {
             printHelp(System.err);
@@ -64,8 +64,8 @@ public class MulticastToolMain {
         }
         
         try{
-            final InetAddress address = InetAddress.getByName(params.get(0));
-            final int port = Integer.parseInt(params.get(1));
+            final InetAddress address = InetAddress.getByName(String.valueOf(params.get(0)));
+            final int port = Integer.parseInt(String.valueOf(params.get(1)));
             
             if(options.has("l")) {
                 MulticastSnifferThread t = new MulticastSnifferThread(address, port, rtOpts);

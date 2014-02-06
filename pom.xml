@@ -11,9 +11,9 @@
     <url>http://wiztools.org</url>
     
     <scm>
-        <connection>scm:svn:http://wiztools.googlecode.com/svn/multicast-tool/trunk/</connection>
-        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/multicast-tool/trunk/</developerConnection>
-        <url>http://code.google.com/p/wiztools/source/browse/</url>
+        <connection>scm:git:https://github.com/wiztools/multicast-tool.git</connection>
+        <developerConnection>scm:git:https://github.com/wiztools/multicast-tool.git</developerConnection>
+        <url>https://github.com/wiztools/multicast-tool</url>
     </scm>
 
     <properties>
@@ -24,12 +24,12 @@
         <dependency>
             <groupId>net.sf.jopt-simple</groupId>
             <artifactId>jopt-simple</artifactId>
-            <version>3.3</version>
+            <version>4.5</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.2</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -39,7 +39,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
@@ -70,13 +70,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <configuration>
-                    <tagBase>https://wiztools.googlecode.com/svn/multicast-tool/tags</tagBase>
-                </configuration>
             </plugin>
         </plugins>
     </build>
